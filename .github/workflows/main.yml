@@ -1,0 +1,19 @@
+name: FFmpeg Setup
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup FFmpeg
+        uses: federicocarboni/setup-ffmpeg@v3.1
+
+      - name: Check FFmpeg installation
+        run: ffmpeg -version
